@@ -72,3 +72,27 @@ AI Models: Run on local Flask server (no cloud costs)
 🚀 Uses only pre-trained models (no training required).
 🎯 MERN + EJS = Fast development, no extra frontend hassle.
 💡 Impactful and hackathon-ready project!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+farmers and rural communities face significant 
+challenges in accessing timely healthcare and accurate agricultural insights. Many farmers suffer from occupational health issues, particularly skin diseases caused by prolonged exposure to the sun, chemicals, and unsanitary conditions. At the same time, 
+crop diseases can severely impact yield, often due to a lack of early detection and proper intervention.
