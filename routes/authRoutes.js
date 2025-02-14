@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 // Register
 router.post('/register', [
-    body('name').notEmpty().withMessage('Name is required'),
+    body('username').notEmpty().withMessage('Username is required'),
     body('email').isEmail().withMessage('Email is invalid'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
 ], async (req, res) => {
@@ -16,7 +16,7 @@ router.post('/register', [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password, age, skinType, allergies } = req.body;
+    const { username, email, password } = req.body;
 
     try {
         let user = await User.findOne({ email });
@@ -25,12 +25,9 @@ router.post('/register', [
         }
 
         user = new User({
-            name,
+            username,
             email,
-            password,
-            age,
-            skinType,
-            allergies
+            password
         });
 
         const salt = await bcrypt.genSalt(10);
@@ -51,7 +48,7 @@ router.post('/register', [
             (err, token) => {
                 if (err) throw err;
                 req.session.user = user;
-                res.redirect('/myhome')
+                res.redirect('/myhome');
                 res.json({ token });
             }
         );
@@ -61,12 +58,14 @@ router.post('/register', [
     }
 });
 
-router.get('/login',(req,res)=>{
-    res.render('login')
+router.get('/login', (req, res) => {
+    res.render('login');
 });
-router.get('/register',(req,res)=>{
-    res.render('register')
+
+router.get('/register', (req, res) => {
+    res.render('welcome');
 });
+
 // Login
 router.post('/login', [
     body('email').isEmail().withMessage('Email is invalid'),

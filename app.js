@@ -3,10 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const authRoutes = require('./routes/authRoutes');
-const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
-const { body, validationResult } = require('express-validator');
 
 // Initialize app
 const app = express();
@@ -24,42 +21,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 const User = require('./models/User');
 
-app.get('/onlineCure', (req, res) => {
-    if (!req.session.user) {
-        return res.render('onlineCure');
-    }
-    res.render('onlineCure');
-});
-
-app.get('/book', (req, res) => {
-    res.render('book');
-});
-
-app.use('/auth', authRoutes);
-
 app.get('/', (req, res) => {
-    if (req.session.user) {
-        return res.redirect('/myhome');
-    }
     res.render('welcome');
-});
-
-app.get('/preventionGuide', (req, res) => {
-    res.render('guide');  
-});
-
-app.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.clearCookie('authToken');
-        res.redirect('/auth/login');
-    });
-});
-
-app.get('/about', (req, res) => {
-    res.render('about');
 });
 
 app.get('/myhome', (req, res) => {
@@ -73,6 +36,18 @@ app.get('/myhome', (req, res) => {
 
 app.get('/dom',(req,res) => {
     res.render('home');
+});
+
+app.use('/auth', authRoutes);
+
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.clearCookie('authToken');
+        res.redirect('/auth/login');
+    });
 });
 
 // Start the server
