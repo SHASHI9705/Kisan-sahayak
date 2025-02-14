@@ -38,15 +38,17 @@ Already trained on 38 crop diseases, runs locally with PyTorch & Flask.
 Frontend (EJS): Simple search bar to find doctors by district/state.
 Backend (Express.js + MongoDB): Fetches doctor details.
 Response: Returns contact details (phone, WhatsApp) for manual appointment.
-✅ 4. Q&A Knowledge Base (No Chatbot, Just Static Data)
-📌 Goal: Provide predefined answers for common health & crop queries.
-💡 Solution: Use MongoDB collection with pre-filled FAQs.
+🔹 Updated Workflow for Part 4: News & Policies
+📌 Goal: Show latest updates on fertilizers, government policies, and farmer welfare schemes.
+💡 Solution: Use a MongoDB collection where admins manually upload news.
 
 🔹 Steps:
 
-Frontend (EJS): Search bar for common queries.
-Backend (Express.js + MongoDB): Queries MongoDB for predefined answers.
-Response: Shows solution on screen (no chatbot needed).
+Admin Panel (EJS Form) → Allows manual entry of news articles.
+MongoDB Collection → Stores news title, date, description, and category (fertilizer updates, policies, schemes, etc.).
+Frontend (EJS Page) → Displays latest news articles in a scrollable feed.
+Sorting & Filtering → Farmers can filter by category (e.g., “Fertilizers,” “Govt Policies”).
+
 🕒 Ultra-Fast 14-Hour Execution Plan
 ✅ Hour 1-2: Setup MERN stack, EJS templates, and UI
 ✅ Hour 3-5: Integrate pre-trained AI models (Flask APIs)
