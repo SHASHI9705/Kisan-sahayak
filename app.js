@@ -25,17 +25,13 @@ app.get('/', (req, res) => {
     res.render('welcome');
 });
 
-app.get('/myhome', (req, res) => {
+app.get('/home', (req, res) => {
     if (req.session.user) {
         console.log('User is logged in:', req.session.user);
         return res.render('home', { user: req.session.user });
     }
     console.log('User is not logged in');
-    res.render('login');
-});
-
-app.get('/dom',(req,res) => {
-    res.render('home');
+    res.redirect('/');
 });
 
 app.use('/auth', authRoutes);
@@ -46,7 +42,7 @@ app.get('/logout', (req, res) => {
             return console.log(err);
         }
         res.clearCookie('authToken');
-        res.redirect('/auth/login');
+        res.redirect('/');
     });
 });
 

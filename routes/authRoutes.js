@@ -48,22 +48,13 @@ router.post('/register', [
             (err, token) => {
                 if (err) throw err;
                 req.session.user = user;
-                res.redirect('/myhome');
-                res.json({ token });
+                res.redirect('/home');
             }
         );
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
     }
-});
-
-router.get('/login', (req, res) => {
-    res.render('login');
-});
-
-router.get('/register', (req, res) => {
-    res.render('welcome');
 });
 
 // Login
@@ -102,7 +93,7 @@ router.post('/login', [
             (err, token) => {
                 if (err) throw err;
                 req.session.user = user;
-                res.redirect('/myhome');
+                res.redirect('/home');
             }
         );
     } catch (err) {
