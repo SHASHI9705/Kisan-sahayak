@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kisan Sahayak</title>
+  <!-- Boxicons for icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    /* Base & Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #E0E0E0;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Navigation */
+    .navbar {
+      width: 85%;
+      position: fixed;
+      margin-top: 3px;
+      border-radius: 10px;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      margin-left: 7.5%;
+      z-index: 10;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+
+    .navbar .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #BB86FC;
+      margin-left: 10px;
+    }
+
+    .navbar .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .navbar ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      font-size: 16px;
+      color: #E0E0E0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color 0.3s, background 0.3s;
+      text-decoration: none; /* Remove underline */
+    }
+
+    .navbar ul li a:hover {
+      color: #ffffff;
+      background: #7373788a;
+    }
+    
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      flex: 1;
+    }
+    
+    /* Services Section */
+    #services {
+      background: #000000;
+      color: #E0E0E0;
+    }
+    .services-container {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .service-card {
+      background: #2C2C2C;
+      border-radius: 15px;
+      padding: 30px;
+      cursor: pointer;
+      width: 67%;
+      margin-right: auto;
+      height: fit-content;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards;
+    }
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5777cf;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.section-paragraph {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.health-list {
+    padding-left: 20px;
+    font-size: 15px;
+    color: #222;
+    line-height: 1.6;
+}
+
+.health-list li {
+    margin-bottom: 15px;
+    background-color: #f7f9fc;
+    padding: 12px 15px;
+    border-left: 4px solid #1241c3;
+    border-radius: 6px;
+}
+
+
+
+    
+    /* Footer */
+    footer {
+      background: #121212;
+      color: #E0E0E0;
+      text-align: center;
+      padding: 5px 20px; /* Make footer thinner */
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .left {
+      font-size: 12px;
+    }
+
+    footer .right {
+      display: flex;
+      gap: 10px;
+    }
+
+    footer .right a {
+      color: #E0E0E0;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.3s;
+    }
+
+    footer .right a:hover {
+      color: #BB86FC;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .navbar ul li {
+        margin: 0 10px;
+      }
+      .services-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      footer {
+        flex-direction: column;
+      }
+      footer .right {
+        flex-direction: column;
+        align-items: center;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="/content/arogya.jpg" alt="Logo" class="logo-image">
+      <div class="logo">Kisan Sahayak</div>
+    </div>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/book">Appointments</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="services-container">
+        <div class="service-card">
+            <h2 class="section-heading">🚜 Farmer’s Health Challenges: A Silent Struggle in the Fields</h2>
+
+<p class="section-paragraph" style="font-style: italic; color: white;">
+  Farming is the backbone of our society, but it often comes with hidden health risks. Due to long hours in harsh conditions and limited access to healthcare, many farmers silently suffer from preventable diseases. Here are some common health challenges faced by farmers in their daily lives:
+</p>
+
+<ul class="health-list">
+  <li>
+    <strong>🌞 1. Skin Disorders from Prolonged Sun Exposure</strong><br>
+    Farmers spend countless hours under the harsh sun without adequate protection, leading to a range of skin problems. Constant exposure to ultraviolet (UV) rays causes not only tanning but also increases the risk of serious skin conditions such as sunburns, pigmentation, rashes, and even skin cancer. Often, due to lack of awareness, farmers neglect using sunscreen or protective clothing, which aggravates the situation. Over time, chronic exposure to the sun can cause premature aging of the skin and long-term damage that is hard to reverse.
+  </li>
+  <li>
+    <strong>🌫️ 2. Respiratory Issues from Dust and Pesticides</strong><br>
+    The constant inhalation of dust particles, crop residue, and chemical pesticides used in farming can lead to serious respiratory issues. Many farmers work without masks or any protective gear, which makes them vulnerable to breathing problems like chronic bronchitis, asthma, allergic reactions, and even lung infections. In areas where chemical usage is high, the risk of pesticide poisoning and toxic build-up in the lungs becomes a severe concern, impacting their breathing efficiency and overall stamina.
+  </li>
+  <li>
+    <strong>💪 3. Musculoskeletal Problems from Physical Labor
+    </strong><br>
+    Farming involves repetitive tasks such as lifting heavy loads, bending, digging, planting, and harvesting, which puts immense pressure on the joints, back, and muscles. Over time, these actions lead to chronic pain, arthritis, slipped discs, and fatigue. Since medical help is often not readily accessible in rural areas, most farmers tend to ignore these symptoms until they become severely limiting, reducing their capacity to work and affecting their livelihood.
+  </li>
+  <li>
+    <strong>🧠 4. Mental Health Struggles and Stress
+    </strong><br>
+    Mental health is one of the most overlooked issues among farmers. Economic instability, debt, unpredictable weather, crop failures, and isolation contribute to stress, anxiety, and even depression. The stigma around mental health in rural areas often prevents farmers from seeking help, leaving them to battle emotional burdens alone. Sadly, in extreme cases, some may even resort to self-harm. Raising awareness and providing counseling resources is essential to address this growing concern.
+  </li>
+  <li>
+    <strong>💦 5. Waterborne Diseases and Poor Sanitation
+    </strong><br>
+    Farmers, especially in rural areas, often rely on open water sources that may be contaminated with industrial waste, pesticides, or sewage. This leads to waterborne diseases such as diarrhea, cholera, typhoid, and skin infections. Lack of proper toilets and clean water for drinking and washing further worsens the situation. These diseases not only impact the health of farmers but also their families and communities.
+  </li>
+  <li>
+    <strong>🧪 6. Exposure to Hazardous Chemicals and Pesticides    </strong><br>
+    Most modern farming involves the use of chemical fertilizers and pesticides, which, while improving yield, pose significant health risks. Direct contact with these chemicals without gloves or protective gear leads to skin irritations, nausea, headaches, and long-term exposure can even result in cancer or nervous system disorders. Many farmers are unaware of the correct handling procedures and safety protocols, making them more vulnerable to harmful effects.
+  </li>
+</ul>
+
+
+        </div>
+        
+
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="left">
+      <p>&copy; 2025 Kisan Sahayak. All Rights Reserved.</p>
+    </div>
+    <div class="right">
+      <a href="#privacy-policy">Privacy Policy</a>
+      <a href="#terms-conditions">Terms & Conditions</a>
+      <a href="#cookie-policy">Cookie Policy</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript for scroll animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.service-card');
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
+  
+<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/01/31/00/20250131004409-XDSRXKE8.js"></script>
+  
+</body>
+</html>

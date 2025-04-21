@@ -27,13 +27,25 @@ app.get('/', (req, res) => {
 
 app.get('/home', (req, res) => {
     if (req.session.user) {
-        console.log('User is logged in:', req.session.user);
         return res.render('home', { user: req.session.user });
     }
     console.log('User is not logged in');
     res.redirect('/');
 });
 
+app.get('/about', (req,res) => {
+    res.render('about');
+});
+app.get('/skin', (req,res) => {
+    res.render('skin');
+});
+
+app.get('/book',(req,res) => {
+    res.render('book');
+})
+app.get('/know',(req,res) => {
+    res.render('know');
+})
 app.use('/auth', authRoutes);
 
 app.get('/logout', (req, res) => {

@@ -29,30 +29,40 @@
     
     /* Navigation */
     .navbar {
-      width: 100%;
-      background: rgba(18, 18, 18, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      width: 85%;
+      position: fixed;
+      margin-top: 3px;
+      border-radius: 10px;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 50px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
+      margin-left: 7.5%;
+      z-index: 10;
       transition: background 0.3s, backdrop-filter 0.3s;
     }
 
-    .navbar:hover {
-      background: rgba(18, 18, 18, 1);
-      backdrop-filter: blur(0);
+
+    .navbar .logo-container {
+      display: flex;
+      align-items: center;
     }
 
     .navbar .logo {
       font-size: 24px;
       font-weight: 700;
       color: #BB86FC;
+      margin-left: 10px;
+    }
+
+    .navbar .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
     }
 
     .navbar ul {
@@ -76,60 +86,8 @@
     }
 
     .navbar ul li a:hover {
-      color: #121212;
-      background: #BB86FC;
-    }
-    
-    /* Hero Section */
-    .hero {
-      height: calc(100vh - 60px);  /* Full screen hero section minus navbar height */
-      background: url('/content/cropp.jpg') no-repeat center center/cover, rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      color: #fff;
-      padding-top: 22rem; /* Adjust for fixed nav */
-      border-top: 2px solid rgba(255, 255, 255, 0.7);
-      border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 -5px 15px rgba(255, 255, 255, 0.2), 0 5px 15px rgba(255, 255, 255, 0.2);
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      animation: fadeIn 1s ease-out forwards;
-    }
-    .hero p {
-      margin-bottom: 10px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-    }
-    .btn {
-      display: inline-block;
-      background: #BB86FC;
-      color: #121212;
-      padding: 12px 30px;
-      font-size: 16px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .btn:hover {
-      background: #3700B3;
-      transform: translateY(-3px);
+      color: #ffffff;
+      background: #7373788a;
     }
     
     /* Sections */
@@ -140,11 +98,10 @@
     
     /* Services Section */
     #services {
-      background: #1E1E1E;
+      background: #000000;
       color: #E0E0E0;
     }
     .services-container {
-      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -155,11 +112,14 @@
       background: #2C2C2C;
       border-radius: 15px;
       padding: 30px;
-      width: 260px;
+      cursor: pointer;
+      width: 45%;
+      height: 33rem;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.5s forwards;
     }
@@ -178,12 +138,13 @@
       font-size: 1.5rem;
     }
     .service-card p {
-      font-size: 1rem;
+      font-size: 1.3rem;
       color: #B0B0B0;
+      font-style: italic;
     }
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.5); /* Add glowy effect */
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.5); /* Add glowy effect */
     }
     
     /* Footer */
@@ -256,53 +217,230 @@
         align-items: center;
       }
     }
+    .abtcontainer {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .abtsection {
+            background-color: #1E1E1E;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .section-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ff88;
+  text-align: center;
+  margin: 40px 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-paragraph {
+  font-size: 18px;
+  color: #cccccc;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.section-list {
+  list-style-type: disc;
+  padding-left: 30px;
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-list li strong {
+  color: #ffd700;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #28283d;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.71);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-title {
+  color: #00ffcc;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.contact-form label {
+  display: block;
+  color: #cccccc;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #2a2a3a;
+  color: #f0f0f0;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #00ffcc;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00ffcc;
+  color: #1e1e2f;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #00e6b8;
+}
+
   </style>
 </head>
 <body>
   <nav class="navbar">
-    <div class="logo">Kisan Sahayak</div>
+    <div class="logo-container">
+      <img src="/content/arogya.jpg" alt="Logo" class="logo-image">
+      <div class="logo">Kisan Sahayak</div>
+    </div>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#services">AI Services</a></li>
+      <li><a href="#abtcont">About Us</a></li>
+      <li><a href="#scheme">Scheme</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="/logout">Logout</a></li>
     </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Kisan Sahayak</h1>
-      <p>AI-powered health diagnostics to keep you at your best. </p><br>
-      <a href="#services" class="btn">Discover More</a>
-    </div>
-  </section>
+
 
   <!-- Services Section -->
   <section id="services">
     <div class="services-container">
-      <div class="service-card" id="health-assist">
-        <div class="icon"><i class='bx bx-heart'></i></div>
-        <h2>Health Assist</h2>
-        <p>AI-powered health diagnostics to keep you at your best.</p>
-      </div>
-      <div class="service-card" id="crop-health">
-        <div class="icon"><i class='bx bx-leaf'></i></div>
-        <h2>Crop Health AI</h2>
-        <p>Identify and treat crop diseases with smart analytics.</p>
-      </div>
-      <div class="service-card" id="skin-care">
-        <div class="icon"><i class='bx bx-user'></i></div>
-        <h2>Skin Care AI</h2>
-        <p>Advanced AI for personalized skin condition analysis.</p>
-      </div>
-      <div class="service-card" id="know-more">
-        <div class="icon"><i class='bx bx-book-reader'></i></div>
-        <h2>Know More</h2>
-        <p>Discover insights and innovations in AI technology.</p>
-      </div>
+      <a href="/skin">
+        <div class="service-card" id="health-assist">
+          <div class="icon"><i class='bx bx-heart'></i></div>
+          <a style="text-decoration: none; color: white;"><h2>Personal Health Assist</h2></a>
+          <p>AI-powered health diagnostics to keep you at your best.Take control of your skin health with our intelligent Personal Health Assistant.
+            This section is designed to guide you with AI-powered support for skin-related concerns.Upload a photo of your skin condition, and our AI will analyze it instantly to provide you with possible causes, precautions, and helpful remedies.
+            You'll also find expert-written articles on common skin diseases, treatments, and tips to maintain healthy skin,because prevention is just as important as the cure.
+            <br><b>Click to begin your journey to healthier skin!</b></p>
+        </div>
+        <div class="service-card" id="crop-health">
+          <div class="icon"><i class='bx bx-leaf'></i></div>
+          <h2>Crop Health Assist</h2>
+          <p>Identify and treat crop diseases with smart analytics.Give your crops the care they deserve with our smart Crop Health Assistant.
+            This section lets you upload images of your crops, and our AI will analyze them to detect signs of disease or nutrient deficiencies. You’ll receive instant insights along with suggestions for treatment, prevention, and overall plant care.
+            In addition, explore a collection of informative articles about common crop diseases, farming tips, and sustainable practices to boost your agricultural success.
+            <br><b>Click to help your crops grow healthier and stronger!</b></p>
+        </div>
+      </a>
+      
     </div>
   </section>
+  <div class="abtcontainer" id="abtcont">
+    <div class="abtsection">
+        <h2>Our Mission</h2>
+        <p>We are dedicated to revolutionizing farmer healthcare and crop disease management through AI-powered technology. Our platform provides essential health support to farmers facing skin issues due to prolonged exposure to fertilizers and chemicals. Additionally, we assist farmers in diagnosing crop diseases, ensuring better yields and sustainable farming.</p>
+    </div>
+    <div class="abtsection">
+        <h2>AI-Powered Farmer Health Assistance</h2>
+        <p>Farming exposes workers to harmful chemicals and fertilizers, leading to severe skin conditions and health issues. Our AI-driven system allows farmers to upload images of their skin problems and receive an instant diagnosis with possible remedies. We aim to make healthcare accessible and proactive, preventing long-term health risks.</p>
+    </div>
+    <div class="abtsection">
+        <h2>Book Appointments with Nearby Doctors</h2>
+        <p>Recognizing the difficulties in accessing healthcare, our platform enables farmers to find and book appointments with the nearest healthcare professionals. This feature ensures that farmers receive timely medical attention without unnecessary travel burdens.</p>
+    </div>
+    <div class="abtsection">
+        <h2>AI-Driven Crop Disease Detection</h2>
+        <p>Agricultural productivity is often threatened by various plant diseases. Our AI model helps farmers identify diseases affecting their crops by simply uploading images. Our system suggests remedial measures and preventive solutions, empowering farmers to make informed decisions and protect their harvests.</p>
+    </div>
+    <div class="abtsection">
+        <h2>Latest Government Schemes for Farmers</h2>
+        <p>We provide up-to-date information on government policies, financial aid, and agricultural support programs available for farmers. By staying informed, farmers can take advantage of various schemes designed to improve their livelihoods.</p>
+    </div>
+    <div class="abtsection">
+        <h2>Latest News & Updates</h2>
+        <p>Farming is constantly evolving with new techniques, policies, and technologies. We keep farmers updated with the latest news, market trends, and scientific advancements to help them adapt to changes and improve their agricultural practices.</p>
+    </div>
+</div>
+<h2 class="section-heading" id="scheme">🌾 Latest Government Schemes for Farmers</h2>
+<p class="section-paragraph">
+  The Indian government has introduced several schemes to support farmers, aiming to enhance productivity, ensure financial security, and improve overall agricultural sustainability.
+</p>
+<ul class="section-list">
+  <li><strong>Prime Minister Dhan-Dhaanya Krishi Yojana:</strong> Targets farmers in low-yield regions, offering financial aid, resources, and training to improve agricultural output.</li>
+  <li><strong>Mission for Cotton Productivity:</strong> A five-year plan to boost extra-long staple cotton production and strengthen the textile industry.</li>
+  <li><strong>National Mission on High-Yield Seed Varieties:</strong> Ensures food security by providing reliable high-yield seeds and increasing farmer income.</li>
+  <li><strong>Kisan e-Mitra:</strong> Integrates AI in agriculture, offering real-time solutions for farming, crop health, and farmer wellness.</li>
+  <li><strong>Kisan Credit Card (KCC) Scheme:</strong> Provides low-interest loans to help farmers purchase fertilizers, seeds, and tools.</li>
+  <li><strong>National Mission on Natural Farming:</strong> Promotes organic farming using bio-fertilizers and sustainable techniques.</li>
+  <li><strong>Soil Testing Initiatives:</strong> Helps farmers choose suitable crops and fertilizers based on soil nutrients.</li>
+  <li><strong>Rainfed Area Development Program:</strong> Supports irrigation and water conservation in low-rainfall regions.</li>
+  <li><strong>Pradhan Mantri Kisan Maandhan Yojana:</strong> Provides pension benefits for elderly farmers after age 60.</li>
+  <li><strong>Pulses Production Program:</strong> A six-year plan to increase domestic pulses production and ensure fair pricing.</li>
+  <li><strong>Small Farmer Financial Aid:</strong> Offers financial help to marginal and small-scale farmers for sustaining agriculture.</li>
+</ul>
+
+<h2 class="section-heading">🧪 Recent Developments in Fertilizers</h2>
+<ul class="section-list">
+  <li>₹24,475 crore allocated for nutrient-based subsidies to ensure affordable phosphatic and potassic fertilizers.</li>
+  <li>Enhanced R&D for bio-fertilizers to promote chemical-free and sustainable farming methods.</li>
+  <li>4% increase in fertilizer production this fiscal year, boosting self-reliance.</li>
+  <li>Introduction of nano-fertilizers for controlled and efficient nutrient delivery to crops.</li>
+  <li>Maintaining subsidies on urea to avoid price hikes and reduce financial burden on farmers.</li>
+  <li>Development of region-specific fertilizers by scientists to match local soil and climate conditions.</li>
+  <li>Large-scale rural distribution programs to ensure timely fertilizer availability.</li>
+  <li>Public-private partnerships to drive innovation in fertilizer production.</li>
+  <li>Launch of digital platforms for checking fertilizer prices, availability, and usage guidance.</li>
+  <li>Studies show balanced fertilizer use has improved yields by 10-15% across various regions.</li>
+  <li>New eco-friendly fertilizer regulations are reducing environmental damage and encouraging green practices.</li>
+  <li>Farmer education initiatives promoting precision farming to optimize fertilizer use and reduce waste.</li>
+</ul>
+
+<form class="contact-form" id="contact" method="POST" action="/submit-contact">
+  <h2 class="form-title">📬 Get in Touch</h2>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required placeholder="Your Full Name" />
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required placeholder="your@email.com" />
+
+  <label for="message">Description</label>
+  <textarea id="message" name="message" rows="5" required placeholder="Describe your concern or query..."></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+
+
 
   <!-- Footer -->
   <footer>
