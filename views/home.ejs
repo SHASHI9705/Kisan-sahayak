@@ -18,7 +18,7 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
+      background: #000000;
       color: #E0E0E0;
       line-height: 1.6;
       overflow-x: hidden;
@@ -32,7 +32,7 @@
       width: 85%;
       position: fixed;
       margin-top: 3px;
-      border-radius: 10px;
+      border-radius: 9px;
       backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(7px);
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -54,7 +54,7 @@
     .navbar .logo {
       font-size: 24px;
       font-weight: 700;
-      color: #BB86FC;
+      color: #ffffff;
       margin-left: 10px;
     }
 
@@ -92,7 +92,7 @@
     
     /* Sections */
     section {
-      padding: 100px 20px;
+      margin-top: 6rem;
       flex: 1;
     }
     
@@ -102,19 +102,19 @@
       color: #E0E0E0;
     }
     .services-container {
-      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 7px;
     }
     .service-card {
-      background: #2C2C2C;
+      background: #0000009d;
+      border: 1px solid rgba(255, 255, 255, 0.511);
       border-radius: 15px;
       padding: 30px;
       cursor: pointer;
-      width: 45%;
-      height: 33rem;
+      width: 48%;
+      height: 34rem;
       backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(7px);
       text-align: center;
@@ -143,8 +143,9 @@
       font-style: italic;
     }
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.5); /* Add glowy effect */
+      transform: scale(1.1); /* Slight zoom-in */
+      transition: transform 0.3s ease , box-shadow 0.3s ease;
+      box-shadow: 0 7px 7px rgba(209, 202, 202, 0.4), 0 0 7px rgba(255, 255, 255, 0.5); /* Add glowy effect */
     }
     
     /* Footer */
@@ -224,7 +225,7 @@
         }
 
         .abtsection {
-            background-color: #1E1E1E;
+            background-color: #282727aa;
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
@@ -265,10 +266,10 @@
 .contact-form {
   max-width: 600px;
   margin: 40px auto;
-  background-color: #28283d;
+  background-color: #000000;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.71);
+  border: 1px solid rgba(255, 255, 255, 0.489);
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -350,7 +351,7 @@
           <p>AI-powered health diagnostics to keep you at your best.Take control of your skin health with our intelligent Personal Health Assistant.
             This section is designed to guide you with AI-powered support for skin-related concerns.Upload a photo of your skin condition, and our AI will analyze it instantly to provide you with possible causes, precautions, and helpful remedies.
             You'll also find expert-written articles on common skin diseases, treatments, and tips to maintain healthy skin,because prevention is just as important as the cure.
-            <br><b>Click to begin your journey to healthier skin!</b></p>
+            <br><br><span style="color: rgb(234, 234, 139);"><b>Click to begin your journey to healthier skin!</b></span></p>
         </div>
         <div class="service-card" id="crop-health">
           <div class="icon"><i class='bx bx-leaf'></i></div>
@@ -358,38 +359,13 @@
           <p>Identify and treat crop diseases with smart analytics.Give your crops the care they deserve with our smart Crop Health Assistant.
             This section lets you upload images of your crops, and our AI will analyze them to detect signs of disease or nutrient deficiencies. You’ll receive instant insights along with suggestions for treatment, prevention, and overall plant care.
             In addition, explore a collection of informative articles about common crop diseases, farming tips, and sustainable practices to boost your agricultural success.
-            <br><b>Click to help your crops grow healthier and stronger!</b></p>
+            <br><br><span style="color: rgb(234, 234, 139);"><b>Click to help your crops grow healthier and stronger!</b></span></p>
         </div>
       </a>
       
     </div>
   </section>
-  <div class="abtcontainer" id="abtcont">
-    <div class="abtsection">
-        <h2>Our Mission</h2>
-        <p>We are dedicated to revolutionizing farmer healthcare and crop disease management through AI-powered technology. Our platform provides essential health support to farmers facing skin issues due to prolonged exposure to fertilizers and chemicals. Additionally, we assist farmers in diagnosing crop diseases, ensuring better yields and sustainable farming.</p>
-    </div>
-    <div class="abtsection">
-        <h2>AI-Powered Farmer Health Assistance</h2>
-        <p>Farming exposes workers to harmful chemicals and fertilizers, leading to severe skin conditions and health issues. Our AI-driven system allows farmers to upload images of their skin problems and receive an instant diagnosis with possible remedies. We aim to make healthcare accessible and proactive, preventing long-term health risks.</p>
-    </div>
-    <div class="abtsection">
-        <h2>Book Appointments with Nearby Doctors</h2>
-        <p>Recognizing the difficulties in accessing healthcare, our platform enables farmers to find and book appointments with the nearest healthcare professionals. This feature ensures that farmers receive timely medical attention without unnecessary travel burdens.</p>
-    </div>
-    <div class="abtsection">
-        <h2>AI-Driven Crop Disease Detection</h2>
-        <p>Agricultural productivity is often threatened by various plant diseases. Our AI model helps farmers identify diseases affecting their crops by simply uploading images. Our system suggests remedial measures and preventive solutions, empowering farmers to make informed decisions and protect their harvests.</p>
-    </div>
-    <div class="abtsection">
-        <h2>Latest Government Schemes for Farmers</h2>
-        <p>We provide up-to-date information on government policies, financial aid, and agricultural support programs available for farmers. By staying informed, farmers can take advantage of various schemes designed to improve their livelihoods.</p>
-    </div>
-    <div class="abtsection">
-        <h2>Latest News & Updates</h2>
-        <p>Farming is constantly evolving with new techniques, policies, and technologies. We keep farmers updated with the latest news, market trends, and scientific advancements to help them adapt to changes and improve their agricultural practices.</p>
-    </div>
-</div>
+  
 <h2 class="section-heading" id="scheme">🌾 Latest Government Schemes for Farmers</h2>
 <p class="section-paragraph">
   The Indian government has introduced several schemes to support farmers, aiming to enhance productivity, ensure financial security, and improve overall agricultural sustainability.
@@ -423,6 +399,32 @@
   <li>New eco-friendly fertilizer regulations are reducing environmental damage and encouraging green practices.</li>
   <li>Farmer education initiatives promoting precision farming to optimize fertilizer use and reduce waste.</li>
 </ul>
+<div class="abtcontainer" id="abtcont">
+  <div class="abtsection">
+      <h2>Our Mission</h2>
+      <p>We are dedicated to revolutionizing farmer healthcare and crop disease management through AI-powered technology. Our platform provides essential health support to farmers facing skin issues due to prolonged exposure to fertilizers and chemicals. Additionally, we assist farmers in diagnosing crop diseases, ensuring better yields and sustainable farming.</p>
+  </div>
+  <div class="abtsection">
+      <h2>AI-Powered Farmer Health Assistance</h2>
+      <p>Farming exposes workers to harmful chemicals and fertilizers, leading to severe skin conditions and health issues. Our AI-driven system allows farmers to upload images of their skin problems and receive an instant diagnosis with possible remedies. We aim to make healthcare accessible and proactive, preventing long-term health risks.</p>
+  </div>
+  <div class="abtsection">
+      <h2>Book Appointments with Nearby Doctors</h2>
+      <p>Recognizing the difficulties in accessing healthcare, our platform enables farmers to find and book appointments with the nearest healthcare professionals. This feature ensures that farmers receive timely medical attention without unnecessary travel burdens.</p>
+  </div>
+  <div class="abtsection">
+      <h2>AI-Driven Crop Disease Detection</h2>
+      <p>Agricultural productivity is often threatened by various plant diseases. Our AI model helps farmers identify diseases affecting their crops by simply uploading images. Our system suggests remedial measures and preventive solutions, empowering farmers to make informed decisions and protect their harvests.</p>
+  </div>
+  <div class="abtsection">
+      <h2>Latest Government Schemes for Farmers</h2>
+      <p>We provide up-to-date information on government policies, financial aid, and agricultural support programs available for farmers. By staying informed, farmers can take advantage of various schemes designed to improve their livelihoods.</p>
+  </div>
+  <div class="abtsection">
+      <h2>Latest News & Updates</h2>
+      <p>Farming is constantly evolving with new techniques, policies, and technologies. We keep farmers updated with the latest news, market trends, and scientific advancements to help them adapt to changes and improve their agricultural practices.</p>
+  </div>
+</div>
 
 <form class="contact-form" id="contact" method="POST" action="/submit-contact">
   <h2 class="form-title">📬 Get in Touch</h2>

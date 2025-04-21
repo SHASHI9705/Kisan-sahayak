@@ -29,7 +29,6 @@ app.get('/home', (req, res) => {
     if (req.session.user) {
         return res.render('home', { user: req.session.user });
     }
-    console.log('User is not logged in');
     res.redirect('/');
 });
 

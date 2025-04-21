@@ -19,7 +19,8 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
+      background: #000000;
+      background-color: #000000;
       color: #E0E0E0;
       line-height: 1.6;
       overflow-x: hidden;
@@ -30,25 +31,22 @@
     
     /* Navigation */
     .navbar {
-      width: 100%;
-      background: rgba(18, 18, 18, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+      width: 85%;
+      position: fixed;
+      margin-top: 3px;
+      border-radius: 10px;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 50px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
+      margin-left: 7.5%;
+      z-index: 10;
       transition: background 0.3s, backdrop-filter 0.3s;
     }
 
-    .navbar:hover {
-      background: rgba(18, 18, 18, 1);
-      backdrop-filter: blur(0);
-    }
 
     .navbar .logo-container {
       display: flex;
@@ -90,25 +88,40 @@
     }
 
     .navbar ul li a:hover {
+      color: #ffffff;
+      background: #7373788a;
+    }
+
+    .navbar ul li a:hover {
       color: #121212;
       background: #BB86FC;
     }
     
     /* Header */
     header {
-      padding: 20px;
-      background: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+      padding: 5px;
+      border-radius: 10px;
+      width: fit-content;
+      background: rgba(0, 0, 0, 0.7); /* Dark grey with opacity */
       color: white;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
       font-size: 24px;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      margin-top: 60px; /* Offset for fixed navbar */
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.645);
+      margin-top: 6rem; /* Offset for fixed navbar */
     }
 
     /* Map Container */
     .container {
+      margin-top: 2.6rem;
+      border-radius: 10px;
+      width: 90%;
       padding: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid white;
     }
 
     #map {
@@ -164,10 +177,9 @@
     }
 
     /* Footer */
-    .footer {
-      background: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
-      color: #f3f3f3;
-      width: 100%;
+    footer {
+      background: #121212;
+      color: #E0E0E0;
       text-align: center;
       padding: 5px 20px; /* Make footer thinner */
       position: sticky;
@@ -177,27 +189,24 @@
       align-items: center;
     }
 
-    .footer ul {
-      list-style-type: none;
+    footer .left {
+      font-size: 12px;
+    }
+
+    footer .right {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
+      gap: 10px;
     }
 
-    .footer ul li {
-      margin: 0 10px;
-    }
-
-    .footer ul li a {
-      color: #f3f3f3;
+    footer .right a {
+      color: #E0E0E0;
       text-decoration: none;
-      transition: color 0.3s ease;
+      font-size: 12px;
+      transition: color 0.3s;
     }
 
-    .footer ul li a:hover {
-      color: #FF6F61; /* Coral color on hover */
+    footer .right a:hover {
+      color: #BB86FC;
     }
 
     @media (max-width: 768px) {
@@ -232,37 +241,24 @@
 
   <!-- Map Section -->
   <div class="container">
-    <h2>Nearby Dermatologists</h2>
     <div id="map"></div>
   </div>
 
-  <!-- Results Grid (for any additional listings, if needed) -->
-  <div class="results-grid" id="results"></div>
 
-  <!-- Booking Modal -->
-  <div class="modal" id="bookingModal">
-    <div class="modal-content">
-      <h2>Book Appointment</h2>
-      <form id="bookingForm">
-        <input type="date" id="appointmentDate" required>
-        <input type="time" id="appointmentTime" required>
-        <input type="text" id="patientName" placeholder="Your Name" required>
-        <input type="email" id="patientEmail" placeholder="Your Email" required>
-        <button type="submit">Confirm Booking</button>
-      </form>
-    </div>
-  </div>
+
 
   <!-- Footer -->
-  <footer class="footer">
-    <ul>
-      <li><a href="/cookie-settings">Cookie Settings</a></li>
-      <li><a href="/privacy-policy">Privacy Policy</a></li>
-      <li><a href="/cookie-policy">Cookie Policy</a></li>
-      <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-    </ul>
-    <p>kisan sahayak &copy; 2025. Connecting You with Health Experts</p>
+  <footer>
+    <div class="left">
+      <p>&copy; 2025 Kisan Sahayak. All Rights Reserved.</p>
+    </div>
+    <div class="right">
+      <a href="#privacy-policy">Privacy Policy</a>
+      <a href="#terms-conditions">Terms & Conditions</a>
+      <a href="#cookie-policy">Cookie Policy</a>
+    </div>
   </footer>
+
 
   <!-- External JavaScript -->
   <script src="script.js"></script>
