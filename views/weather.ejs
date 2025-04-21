@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌱 Smart Farm Assistant</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+        margin-top: 7rem;
+        border: 1px solid white;
+        color: white;
+      background: rgba(0, 0, 0, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 5px rgba(255, 255, 255, 0.59);
+      padding: 25px 20px;
+      width: 30rem;
+      height: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      color: #ffffff;
+      margin: 15px 0 10px;
+      font-weight: 600;
+      font-size: 1.4em;
+    }
+
+    .icon {
+      width: 100px;
+      height: 100px;
+      margin: 10px 0;
+    }
+
+    .data {
+      color: #ffffff;
+      font-size: 1.05em;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .navbar {
+      width: 85%;
+      height: 2.6rem;
+      position: fixed;
+      margin-top: 0px;
+      border-radius: 9px;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      margin-right: 4rem;
+      margin-left: 7.5%;
+      z-index: 10;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+
+    .navbar .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-left: 10px;
+    }
+
+    .navbar .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .navbar ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      font-size: 16px;
+      color: #E0E0E0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color 0.3s, background 0.3s;
+      text-decoration: none; /* Remove underline */
+    }
+
+    .navbar ul li a:hover {
+      color: #ffffff;
+      background: #7373788a;
+    }
+    footer {
+      background: #121212;
+      width: 100%;
+      height: 1rem;
+      margin-top: 20rem;
+      color: #E0E0E0;
+      text-align: center;
+      padding: 5px 20px; /* Make footer thinner */
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .left {
+      font-size: 12px;
+    }
+
+    footer .right {
+      display: flex;
+      gap: 10px;
+    }
+
+    footer .right a {
+      color: #E0E0E0;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.3s;
+    }
+
+    footer .right a:hover {
+      color: #BB86FC;
+    }
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 5px 15px;
+      color: #eeeeee;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: #49584c;
+      color: #121212;
+      transform: translateY(-2px);
+    }
+
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+          <!-- <img src="/content/arogya.png" alt="Logo" class="logo-image"> -->
+          <div class="logo">Kisan Sahayak</div>
+        </div>
+        <ul>
+
+          <li><a href="/home">Home</a></li>
+          <li><a href="/logout">Logout</a></li>
+          <button class="theme-toggle" onclick="toggleTheme()">&#127769</button>
+        </ul>
+      </nav>
+
+<div class="card">
+  <h2>🌦️ Weather Report</h2>
+  <img id="weatherIcon" class="icon" src="" alt="Weather Icon">
+  <p id="weatherData" class="data">Fetching weather...</p>
+</div>
+
+<div class="card">
+  <a href="iregation.html">
+    <h2>💧 Irrigation Advice</h2>
+    <img id="adviceIcon" class="icon" src="" alt="Advice Icon">
+    <p id="irrigationAdvice" class="data">Waiting for weather info...</p>
+  </a>
+</div>
+<footer>
+    <div class="left">
+      <p>&copy; 2025 Kisan Sahayak. All Rights Reserved.</p>
+    </div>
+    <div class="right">
+      <a href="#privacy-policy">Privacy Policy</a>
+      <a href="#terms-conditions">Terms & Conditions</a>
+      <a href="#cookie-policy">Cookie Policy</a>
+      
+    </div>
+  </footer>
+
+
+<script>
+  async function fetchWeather(lat, lon) {
+    const apiKey = "c37a11513d77ebb07fcc2fe9840ab38c"; 
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to fetch weather.");
+    return response.json();
+  }
+
+  function getIrrigationAdvice(weather) {
+    const temp = weather.main.temp;
+    const humidity = weather.main.humidity;
+    const rain = weather.rain ? weather.rain["1h"] || 0 : 0;
+
+    if (rain > 1) {
+      document.getElementById('adviceIcon').src = "https://cdn-icons-png.flaticon.com/512/1163/1163624.png";
+      return "🌧️ Rainfall detected — irrigation not needed.";
+    } else if (temp > 30 && humidity < 40) {
+      document.getElementById('adviceIcon').src = "https://cdn-icons-png.flaticon.com/512/4150/4150962.png";
+      return "🔥 Hot & dry — increase watering frequency!";
+    } else {
+      document.getElementById('adviceIcon').src = "https://cdn-icons-png.flaticon.com/512/4150/4150915.png";
+      return "✅ Normal weather — light irrigation recommended.";
+    }
+  }
+
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      try {
+        const weather = await fetchWeather(lat, lon);
+        const iconCode = weather.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+        document.getElementById('weatherIcon').src = iconUrl;
+        document.getElementById('weatherData').innerHTML = 
+          `📍 Lat: ${lat.toFixed(2)}, Lon: ${lon.toFixed(2)}<br>` +
+          `🌡️ Temp: ${weather.main.temp}°C<br>` +
+          `💧 Humidity: ${weather.main.humidity}%<br>` +
+          `🌧️ Rain: ${weather.rain ? JSON.stringify(weather.rain) : "No rain"}`;
+
+        document.getElementById('irrigationAdvice').textContent = getIrrigationAdvice(weather);
+
+      } catch (err) {
+        document.getElementById('weatherData').textContent = "❌ Unable to fetch weather data.";
+        document.getElementById('irrigationAdvice').textContent = "⚠️ Irrigation advice unavailable.";
+      }
+    }, () => {
+      document.getElementById('weatherData').textContent = "⚠️ Location access denied.";
+      document.getElementById('irrigationAdvice').textContent = "⚠️ Cannot provide irrigation advice.";
+    });
+  } else {
+    document.getElementById('weatherData').textContent = "❌ Geolocation not supported.";
+  }
+</script>
+<script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+
+</body>
+</html>

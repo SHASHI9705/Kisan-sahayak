@@ -119,9 +119,6 @@
       -webkit-backdrop-filter: blur(7px);
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s forwards;
     }
     .service-card.visible {
       opacity: 1;
@@ -143,8 +140,8 @@
       font-style: italic;
     }
     .service-card:hover {
-      transform: scale(1.1); /* Slight zoom-in */
-      transition: transform 0.3s ease , box-shadow 0.3s ease;
+      transform: scale(1.025); /* Slight zoom-in */
+      transition: transform 0.3s ease , box-shadow 0.3s ease-in-out;
       box-shadow: 0 7px 7px rgba(209, 202, 202, 0.4), 0 0 7px rgba(255, 255, 255, 0.5); /* Add glowy effect */
     }
     
@@ -322,13 +319,35 @@
 .contact-form button:hover {
   background-color: #00e6b8;
 }
+.middleicon img{
+  margin-top: 23rem;
+  position: absolute;
+  margin-left: 50%;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #db62d7,#c3aac6);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  box-shadow: 0 0 4px 4px rgb(174, 213, 255);
+  border: 11px solid rgb(255, 99, 250);
+  z-index: 10000;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+
+@keyframes pulse{
+  0%,100% {transform: translate(-50%,-50%) scale(1);}
+  50% {transform: translate(-50%,-50%) scale(1.07);}
+}
+
 
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="logo-container">
-      <img src="/content/arogya.jpg" alt="Logo" class="logo-image">
+      <!-- <img src="/content/arogya.png" alt="Logo" class="logo-image"> -->
       <div class="logo">Kisan Sahayak</div>
     </div>
     <ul>
@@ -340,26 +359,28 @@
   </nav>
 
 
-
+<div class="middleicon" >
+  <img src="/content/arogya.png" alt="">
+</div>
   <!-- Services Section -->
   <section id="services">
     <div class="services-container">
       <a href="/skin">
-        <div class="service-card" id="health-assist">
+        <div class="service-card" id="health-assist" style="border-top-right-radius: 75px;border-bottom-right-radius: 75px;">
           <div class="icon"><i class='bx bx-heart'></i></div>
-          <a style="text-decoration: none; color: white;"><h2>Personal Health Assist</h2></a>
-          <p>AI-powered health diagnostics to keep you at your best.Take control of your skin health with our intelligent Personal Health Assistant.
-            This section is designed to guide you with AI-powered support for skin-related concerns.Upload a photo of your skin condition, and our AI will analyze it instantly to provide you with possible causes, precautions, and helpful remedies.
-            You'll also find expert-written articles on common skin diseases, treatments, and tips to maintain healthy skin,because prevention is just as important as the cure.
-            <br><br><span style="color: rgb(234, 234, 139);"><b>Click to begin your journey to healthier skin!</b></span></p>
+          <a style="text-decoration: none; color: white;"><h2 style="font-size: 2.9rem;">Personal Health Assist</h2></a>
+          <br>
+          <p>Upload a photo of your skin <br>condition, and our AI  <br> will analyze  it instantly.
+            <br><br><br><br><span style="color: rgb(255, 147, 233);"><b>Click to begin your journey to healthier skin!</b></span></p>
         </div>
-        <div class="service-card" id="crop-health">
+        <a href="/crop">
+        <div class="service-card" id="crop-health" style="border-top-left-radius: 75px;border-bottom-left-radius: 75px;">
           <div class="icon"><i class='bx bx-leaf'></i></div>
-          <h2>Crop Health Assist</h2>
-          <p>Identify and treat crop diseases with smart analytics.Give your crops the care they deserve with our smart Crop Health Assistant.
-            This section lets you upload images of your crops, and our AI will analyze them to detect signs of disease or nutrient deficiencies. You’ll receive instant insights along with suggestions for treatment, prevention, and overall plant care.
-            In addition, explore a collection of informative articles about common crop diseases, farming tips, and sustainable practices to boost your agricultural success.
-            <br><br><span style="color: rgb(234, 234, 139);"><b>Click to help your crops grow healthier and stronger!</b></span></p>
+          <a style="text-decoration: none; color: white;"></a><h2 style="font-size: 2.9rem;">Crop Health Assist</h2>
+          <br>
+          <p>
+            This section lets you upload <br> images of crops and our <br> AI will analyze them. 
+            <br><br><br><br><span style="color: rgb(228, 139, 234);"><b>Click to help your crops grow healthier and stronger!</b></span></p>
         </div>
       </a>
       

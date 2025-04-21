@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropSense | Smart Farming AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+    body {
+      background: linear-gradient(180deg, #121212, #1e1e1e);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+      transition: background 0.4s, color 0.4s;
+    }
+    .logo-fixed {
+      position:fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 200;
+    }
+    .logo-fixed img {
+      height: 50px;
+      width: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    /* .navbar {
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 35px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      transition: all 0.3s ease;
+    } */
+    /* .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex: 1;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #eeeeee;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #80ed99;
+      transform: translateY(-2px);
+    } */
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 5px 15px;
+      color: #eeeeee;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: #49584c;
+      color: #121212;
+      transform: translateY(-2px);
+    }
+    .section{
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      width: 30%;
+      cursor: pointer;
+      height: 27rem;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 25px;
+      padding: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: transform 0.4s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 1px 1px 1px white;
+    }
+    .section h1{
+        color: #ffffff;
+        font-size: 45px;
+        
+    } 
+    
+    .section h2 {
+      color: #00ff1e;
+      margin-bottom: 15px;
+
+      
+    }
+
+    .mainsection{
+        margin-top: 7rem;
+        text-align: center;
+    }
+    .section p {
+      color: #cccccc;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire section */
+    z-index: -1; /* Puts the video behind the content */
+    opacity: 0.6; /* Adjusts the transparency of the video */
+    }
+    body.light-mode {
+      background: linear-gradient(180deg, #ffffff, #f1f1f1);
+      color: #222;
+    }
+    body.light-mode .section {
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    body.light-mode .section h1, body.light-mode .section h2 {
+      color: #003049;
+    }
+    body.light-mode .section p {
+      color: #333;
+    }
+    body.light-mode .navbar, body.light-mode .theme-toggle {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: #003049;
+    }
+    body.light-mode .nav-links a {
+      color: #003049;
+    }
+    body.light-mode .theme-toggle:hover {
+      background: #003049;
+      color: #fff;
+    }
+    #home{
+        height: 800px;
+        width: 100%;
+
+    }
+
+    .navbar {
+      width: 65%;
+      position: fixed;
+      margin-top: 3px;
+      border-radius: 9px;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      margin-left: 7.5%;
+      z-index: 10;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+
+
+    .navbar .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-left: 10px;
+    }
+
+    .navbar .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .navbar ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .navbar ul li a {
+      font-size: 16px;
+      color: #E0E0E0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color 0.3s, background 0.3s;
+      text-decoration: none; /* Remove underline */
+    }
+
+    .navbar ul li a:hover {
+      color: #ffffff;
+      background: #7373788a;
+    }
+
+    footer {
+      background: #121212;
+      width: 100%;
+      color: #E0E0E0;
+      text-align: center;
+      padding: 5px 20px; /* Make footer thinner */
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer .left {
+      font-size: 12px;
+    }
+
+    footer .right {
+      display: flex;
+      gap: 10px;
+    }
+
+    footer .right a {
+      color: #E0E0E0;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.3s;
+    }
+
+    footer .right a:hover {
+      color: #BB86FC;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- <div class="navbar">
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="aicrop.html">AI Insights</a>
+      <a href="iregation.html">Irrigation</a>
+      <a href="weather.html">Weather</a>
+      <button class="theme-toggle" onclick="toggleTheme()">&#127769</button>
+    </div>
+  </div> -->
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="/content/arogya.png" alt="Logo" class="logo-image">
+
+    </div>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/cropai">AI Insights</a></li>
+      <li><a href="/irrigation">Irrigation</a></li>
+      <button class="theme-toggle" onclick="toggleTheme()">&#127769</button>
+    </ul>
+  </nav>
+  <div class="mainsection" id="home">
+    <video autoplay muted loop class="video-bg">
+        <source src="/content/bgvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h1>Welcome to CropSense</h1>
+    <div style="display: flex;gap: 10px;">
+        <div class="section" id="ai">
+            <a href="/cropai" style="text-decoration: none;"><h2>AI Crop Diagnosis</h2></a>
+            <p style="font-size: 21px;font-style: italic;">Instantly detect crop diseases using our advanced AI model for healthy and productive farming.
+                Empower your farming with smart technology. Our AI Crop Diagnosis tool instantly analyzes crop images to detect diseases, pests, and nutrient deficiencies. Get accurate results and actionable insights in seconds to ensure healthier crops and higher yields.
+            </p>
+        </div>
+        
+        <div class="section" id="irrigation">
+            <a href="/irr" style="text-decoration: none;"><h2>Water Smart Irrigation</h2></a>
+            <p style="font-size: 21px;font-style: italic;">Optimize water usage with intelligent irrigation advice tailored to your soil and crop needs.Optimize water usage with intelligent irrigation techniques.
+                Our AI analyzes soil, crop type, and climate conditions.
+                Get personalized watering schedules to avoid over or under-watering.
+                Grow healthier crops while conserving precious water resources.</p>
+        </div>
+        
+        <div class="section" id="weather">
+            <a href="/weather" style="text-decoration: none;"><h2>Weather Integration</h2></a>
+            <p style="font-size: 21px;font-style: italic;">Get real-time weather updates to make informed farming decisions and reduce risks.Stay updated with real-time weather forecasts for your region.
+                Plan your farming activities with accurate temperature and rainfall data.
+                Avoid crop loss by preparing for extreme weather in advance.
+                Make smarter decisions with AI-powered climate insights.</p>
+        </div>
+    </div>
+        
+    
+    </div>
+    <footer>
+        <div class="left">
+          <p>&copy; 2025 Kisan Sahayak. All Rights Reserved.</p>
+        </div>
+        <div class="right">
+          <a href="#privacy-policy">Privacy Policy</a>
+          <a href="#terms-conditions">Terms & Conditions</a>
+          <a href="#cookie-policy">Cookie Policy</a>
+        </div>
+      </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+
+</body>
+</html>

@@ -4,33 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kisan Sahayak</title>
-  <!-- Boxicons for icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <style>
-    /* Base & Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    html {
-      scroll-behavior: smooth; /* Enables smooth scrolling */
-    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #121212;
       color: #E0E0E0;
-      line-height: 1.6;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
-    
-    /* Navigation */
+
     .navbar {
       width: 85%;
       position: fixed;
+      top: 0;
       margin-top: 3px;
       border-radius: 10px;
       backdrop-filter: blur(7px);
@@ -42,23 +33,21 @@
       padding: 15px 50px;
       margin-left: 7.5%;
       z-index: 10;
-      transition: background 0.3s, backdrop-filter 0.3s;
     }
 
-
-    .navbar .logo-container {
+    .logo-container {
       display: flex;
       align-items: center;
     }
 
-    .navbar .logo {
+    .logo {
       font-size: 24px;
       font-weight: 700;
       color: #BB86FC;
       margin-left: 10px;
     }
 
-    .navbar .logo-image {
+    .logo-image {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -67,176 +56,152 @@
 
     .navbar ul {
       display: flex;
-      align-items: center;
       list-style: none;
     }
 
     .navbar ul li {
       margin-left: 20px;
-      position: relative;
     }
 
     .navbar ul li a {
-      font-size: 16px;
       color: #E0E0E0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: color 0.3s, background 0.3s;
-      text-decoration: none; /* Remove underline */
+      text-decoration: none;
+      font-size: 16px;
     }
 
     .navbar ul li a:hover {
       color: #ffffff;
       background: #7373788a;
+      border-radius: 8px;
+      padding: 5px 10px;
     }
-    
-    /* Sections */
+
     section {
-      padding: 100px 20px;
-      flex: 1;
+      padding: 120px 20px 60px;
     }
-    
-    /* Services Section */
-    #services {
-      background: #000000;
-      color: #E0E0E0;
+
+    .section-heading {
+      text-align: center;
+      font-size: 28px;
+      color: #BB86FC;
+      margin-bottom: 15px;
     }
-    .services-container {
-      margin: 0 auto;
+
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 16px;
+      color: #ccc;
+      background-color: #1e1e1e;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(187, 134, 252, 0.2);
+    }
+
+    .health-cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
     }
-    .service-card {
-      background: #000000;
-      border-radius: 15px;
-      padding: 30px;
-      cursor: pointer;
-      width: 67%;
-      height: fit-content;
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
+
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 250px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
       text-align: center;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s forwards;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
     }
-    .service-card.visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
     }
-    .section-heading {
-    font-size: 28px;
-    font-weight: 700;
-    color: #5777cf;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-}
 
-.section-paragraph {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 
-.health-list {
-    padding-left: 20px;
-    font-size: 15px;
-    color: #222;
-    line-height: 1.6;
-}
+    .flip-card-front {
+      background-color: #1e1e1e;
+      color: #BB86FC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-.health-list li {
-    margin-bottom: 15px;
-    background-color: #f7f9fc;
-    padding: 12px 15px;
-    border-left: 4px solid #1241c3;
-    border-radius: 6px;
-}
+    .flip-card-back {
+      background-color: #ffffff;
+      color: #000;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-
-
-    
-    /* Footer */
     footer {
       background: #121212;
       color: #E0E0E0;
       text-align: center;
-      padding: 5px 20px; /* Make footer thinner */
-      position: sticky;
-      bottom: 0;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
     }
 
-    footer .left {
-      font-size: 12px;
-    }
-
-    footer .right {
-      display: flex;
-      gap: 10px;
-    }
-
-    footer .right a {
-      color: #E0E0E0;
-      text-decoration: none;
-      font-size: 12px;
-      transition: color 0.3s;
-    }
-
-    footer .right a:hover {
+    footer a {
       color: #BB86FC;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      margin-left: 10px;
+      text-decoration: none;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    footer a:hover {
+      text-decoration: underline;
     }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
+
+    .left, .right {
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+      .navbar ul {
+        flex-direction: column;
+        margin-top: 10px;
       }
       .navbar ul li {
-        margin: 0 10px;
+        margin: 5px 0;
       }
-      .services-container {
-        flex-direction: column;
-        align-items: center;
+      .flip-card {
+        width: 90%;
       }
-      footer {
-        flex-direction: column;
-      }
-      footer .right {
-        flex-direction: column;
-        align-items: center;
-      }
-
     }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="logo-container">
-      <img src="/content/arogya.jpg" alt="Logo" class="logo-image">
+      <img src="/content/arogya.png" alt="Logo" class="logo-image">
       <div class="logo">Kisan Sahayak</div>
     </div>
     <ul>
@@ -246,57 +211,72 @@
     </ul>
   </nav>
 
-
-
   <!-- Services Section -->
   <section id="services">
     <div class="services-container">
-        <div class="service-card">
-            <h2 class="section-heading">🚜 Farmer’s Health Challenges: A Silent Struggle in the Fields</h2>
+      <h2 class="section-heading">👨‍🌾 Farmer’s Health Challenges</h2>
+      <p class="section-description">
+        Farming is a noble yet physically and mentally demanding occupation. Many farmers silently suffer from health problems due to harsh environmental exposure and limited access to healthcare. Hover over the cards below to learn more about their challenges.
+      </p>
 
-<p class="section-paragraph" style="font-style: italic; color: white;">
-  Farming is the backbone of our society, but it often comes with hidden health risks. Due to long hours in harsh conditions and limited access to healthcare, many farmers silently suffer from preventable diseases. Here are some common health challenges faced by farmers in their daily lives:
-</p>
-
-<ul class="health-list">
-  <li>
-    <strong>🌞 1. Skin Disorders from Prolonged Sun Exposure</strong><br>
-    Farmers spend countless hours under the harsh sun without adequate protection, leading to a range of skin problems. Constant exposure to ultraviolet (UV) rays causes not only tanning but also increases the risk of serious skin conditions such as sunburns, pigmentation, rashes, and even skin cancer. Often, due to lack of awareness, farmers neglect using sunscreen or protective clothing, which aggravates the situation. Over time, chronic exposure to the sun can cause premature aging of the skin and long-term damage that is hard to reverse.
-  </li>
-  <li>
-    <strong>🌫️ 2. Respiratory Issues from Dust and Pesticides</strong><br>
-    The constant inhalation of dust particles, crop residue, and chemical pesticides used in farming can lead to serious respiratory issues. Many farmers work without masks or any protective gear, which makes them vulnerable to breathing problems like chronic bronchitis, asthma, allergic reactions, and even lung infections. In areas where chemical usage is high, the risk of pesticide poisoning and toxic build-up in the lungs becomes a severe concern, impacting their breathing efficiency and overall stamina.
-  </li>
-  <li>
-    <strong>💪 3. Musculoskeletal Problems from Physical Labor
-    </strong><br>
-    Farming involves repetitive tasks such as lifting heavy loads, bending, digging, planting, and harvesting, which puts immense pressure on the joints, back, and muscles. Over time, these actions lead to chronic pain, arthritis, slipped discs, and fatigue. Since medical help is often not readily accessible in rural areas, most farmers tend to ignore these symptoms until they become severely limiting, reducing their capacity to work and affecting their livelihood.
-  </li>
-  <li>
-    <strong>🧠 4. Mental Health Struggles and Stress
-    </strong><br>
-    Mental health is one of the most overlooked issues among farmers. Economic instability, debt, unpredictable weather, crop failures, and isolation contribute to stress, anxiety, and even depression. The stigma around mental health in rural areas often prevents farmers from seeking help, leaving them to battle emotional burdens alone. Sadly, in extreme cases, some may even resort to self-harm. Raising awareness and providing counseling resources is essential to address this growing concern.
-  </li>
-  <li>
-    <strong>💦 5. Waterborne Diseases and Poor Sanitation
-    </strong><br>
-    Farmers, especially in rural areas, often rely on open water sources that may be contaminated with industrial waste, pesticides, or sewage. This leads to waterborne diseases such as diarrhea, cholera, typhoid, and skin infections. Lack of proper toilets and clean water for drinking and washing further worsens the situation. These diseases not only impact the health of farmers but also their families and communities.
-  </li>
-  <li>
-    <strong>🧪 6. Exposure to Hazardous Chemicals and Pesticides    </strong><br>
-    Most modern farming involves the use of chemical fertilizers and pesticides, which, while improving yield, pose significant health risks. Direct contact with these chemicals without gloves or protective gear leads to skin irritations, nausea, headaches, and long-term exposure can even result in cancer or nervous system disorders. Many farmers are unaware of the correct handling procedures and safety protocols, making them more vulnerable to harmful effects.
-  </li>
-</ul>
-
-
+      <div class="health-cards">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">☀️ Skin Disorders from Sun Exposure</div>
+            <div class="flip-card-back">
+              <p>Constant UV exposure causes sunburns, rashes, and even skin cancer. Farmers often lack awareness or resources for sun protection like sunscreen or proper clothing.</p>
+            </div>
+          </div>
         </div>
-        
 
-      
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">🌫️ Respiratory Issues from Dust & Pesticides</div>
+            <div class="flip-card-back">
+              <p>Inhalation of pesticide fumes and dust leads to asthma, bronchitis, or lung infections. Lack of masks or safety equipment worsens the risk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">💪 Musculoskeletal Problems</div>
+            <div class="flip-card-back">
+              <p>Repetitive hard labor causes joint pain, arthritis, and back issues. Most farmers delay treatment due to poor medical access.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">🧠 Mental Health Struggles</div>
+            <div class="flip-card-back">
+              <p>Financial stress, crop failure, and isolation cause depression and anxiety. Mental health is rarely discussed or treated in rural areas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">🚱 Waterborne Diseases</div>
+            <div class="flip-card-back">
+              <p>Contaminated water causes cholera, diarrhea, and infections. Lack of sanitation facilities spreads illness quickly in farming communities.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">☣️ Exposure to Hazardous Chemicals</div>
+            <div class="flip-card-back">
+              <p>Handling fertilizers and pesticides without protection leads to cancer, nerve damage, and skin irritation. Safe handling practices are often ignored.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="left">
       <p>&copy; 2025 Kisan Sahayak. All Rights Reserved.</p>
@@ -326,9 +306,9 @@
       cards.forEach(card => observer.observe(card));
     });
   </script>
-  
-<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/01/31/00/20250131004409-XDSRXKE8.js"></script>
-  
+
+  <!-- Botpress Chatbot -->
+  <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/01/31/00/20250131004409-XDSRXKE8.js"></script>
 </body>
 </html>

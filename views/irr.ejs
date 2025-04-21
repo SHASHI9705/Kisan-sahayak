@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irrigation Information 🌿</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #b1f8f2 0%, #d8ffd3 100%);
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2a5d4d;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    thead {
+      background-color: #1abc9c;
+      color: white;
+    }
+    th, td {
+      padding: 15px 20px;
+      text-align: center;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .good {
+      color: green;
+      font-weight: bold;
+    }
+    .bad {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌿 Irrigation Guidance Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Crop</th>
+      <th>Water Requirement</th>
+      <th>Irrigation Advice</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wheat</td>
+      <td>Moderate</td>
+      <td>Water once every 7–10 days during dry spells.</td>
+      <td class="good">✅ Suitable</td>
+    </tr>
+    <tr>
+      <td>Rice</td>
+      <td>High</td>
+      <td>Requires continuous standing water (flood irrigation).</td>
+      <td class="good">✅ Suitable</td>
+    </tr>
+    <tr>
+      <td>Maize (Corn)</td>
+      <td>Medium to High</td>
+      <td>Drip or furrow irrigation preferred during flowering.</td>
+      <td class="good">✅ Suitable</td>
+    </tr>
+    <tr>
+      <td>Cactus</td>
+      <td>Very Low</td>
+      <td>Avoid irrigation — prefers arid soil conditions.</td>
+      <td class="bad">❌ Not Needed</td>
+    </tr>
+    <tr>
+      <td>Potato</td>
+      <td>Moderate</td>
+      <td>Regular watering needed, especially during tuber formation.</td>
+      <td class="good">✅ Suitable</td>
+    </tr>
+    <tr>
+      <td>Olive</td>
+      <td>Low</td>
+      <td>Minimal watering — prefers dry and well-drained soil.</td>
+      <td class="bad">❌ Less Recommended</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

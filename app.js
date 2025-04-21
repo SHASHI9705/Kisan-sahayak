@@ -42,6 +42,18 @@ app.get('/skin', (req,res) => {
 app.get('/book',(req,res) => {
     res.render('book');
 })
+app.get('/crop',(req,res) => {
+    res.render('crop');
+})
+app.get('/irr',(req,res) => {
+    res.render('irr');
+})
+app.get('/weather',(req,res) => {
+    res.render('weather');
+})
+app.get('/cropai',(req,res) => {
+    res.render('cropai');
+})
 app.get('/know',(req,res) => {
     res.render('know');
 })
