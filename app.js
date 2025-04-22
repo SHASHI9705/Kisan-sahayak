@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-    if (req.session.user) {
-        return res.render('home', { user: req.session.user });
-    }
-    res.redirect('/');
+    // if (req.session.user) {
+    //     return res.render('home', { user: req.session.user });
+    // }
+    res.render('home');
 });
 
 app.get('/about', (req,res) => {
